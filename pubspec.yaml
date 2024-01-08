@@ -29,6 +29,8 @@ dependencies:
   #date format
   intl: ^0.19.0
 
+  dio: ^5.4.0
+
   #A flutter library to show images from the internet and keep them in the cache directory.
   cached_network_image: ^3.3.1
 
