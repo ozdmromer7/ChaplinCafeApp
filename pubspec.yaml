@@ -27,9 +27,13 @@ dependencies:
   retrofit: ^4.0.3
 
   #date format
-  intl: ^0.19.0
+  intl: ^0.18.1
 
+  #for api requests
   dio: ^5.4.0
+
+  #for localization process
+  easy_localization: ^3.0.3
 
   #A flutter library to show images from the internet and keep them in the cache directory.
   cached_network_image: ^3.3.1
