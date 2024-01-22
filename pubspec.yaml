@@ -16,6 +16,7 @@ dependencies:
 
   #state management
   bloc: ^8.1.2
+  provider: ^6.1.1
 
   #compare dart object like "=="
   equatable: ^2.0.5

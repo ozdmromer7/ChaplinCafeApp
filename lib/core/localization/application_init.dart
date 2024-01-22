@@ -7,13 +7,15 @@ import '../constant/constant.dart';
 class ApplicationInit {
   const ApplicationInit._();
 
-  static final easyLocalization = EasyLocalization(
-    supportedLocales:supportedLocales,
-    path:lang_path,
-    fallbackLocale:TR_LOCALE,
-    child: const MyApp(),
-  );
+  static EasyLocalization easyLocalization({required MyApp child}) {
 
+    return EasyLocalization(
+      supportedLocales:supportedLocales,
+      path:lang_path,
+      fallbackLocale:TR_LOCALE,
+      child: child,
+    );
+}
   static Future<void> init() async {
     WidgetsFlutterBinding.ensureInitialized();
     await EasyLocalization.ensureInitialized();
