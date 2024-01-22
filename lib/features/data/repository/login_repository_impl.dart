@@ -1,20 +1,35 @@
-import 'package:chaplin_cafe_app/core/resources/resources.dart';
-import 'package:chaplin_cafe_app/features/data/data_sources/remote/cafe_api_service.dart';
-import 'package:chaplin_cafe_app/features/data/models/login_response_dto.dart';
-import 'package:chaplin_cafe_app/features/domain/entities/login.dart';
-import 'package:chaplin_cafe_app/features/domain/entities/login_response.dart';
-import 'package:chaplin_cafe_app/features/domain/repository/login_repository.dart';
+import 'dart:io';
 
-class LoginRepositoryImpl extends LoginRepository {
-  late CafeApiService apiService ;
+import 'package:chaplin_cafe_app/core/enum/UriEndPoints.dart';
+import 'package:chaplin_cafe_app/features/domain/entities/login.dart';
+import 'package:chaplin_cafe_app/features/domain/repository/login_repository.dart';
+import 'package:dio/dio.dart';
+import '../../../core/resources/resources.dart';
+import '../models/login_response_dto.dart';
+
+class LoginRepositoryImpl implements LoginRepository {
+  LoginRepositoryImpl(this._dio);
+
+  final Dio _dio;
 
   @override
-  Future<Resource<LoginResponse>> getLogin(Login login) {
+  Future<Resource<LoginResponseDto?>> getLogin(Login login) async {
+    final response = await _dio.get(UriEndPoints.login.endPoint, data: login);
 
-    throw UnimplementedError();
+    try {
+      if (response.statusCode == HttpStatus.ok) {
+        var loginResponseDto = LoginResponseDto.fromJson(response.data);
+        return Success(data: loginResponseDto);
+      } else {
+        return Failure(
+            exception: DioException(
+                error: response.statusMessage,
+                response: response,
+                type: DioExceptionType.badResponse,
+                requestOptions: response.requestOptions));
+      }
+    } on DioException catch (e) {
+      return Failure(exception: e);
+    }
   }
-
-
-
-
 }

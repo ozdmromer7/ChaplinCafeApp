@@ -3,12 +3,18 @@ import 'dart:ffi';
 import 'package:chaplin_cafe_app/features/domain/entities/login_response.dart';
 
 class LoginResponseDto extends LoginResponse {
-  const LoginResponseDto({
-      String? name,
+  const LoginResponseDto(
+      {String? name,
       String? middleName,
       String? surname,
       Int? customerId,
-      Bool? isSuccess});
+      Bool? isSuccess})
+      : super(
+            name: name,
+            middleName: middleName,
+            surname: surname,
+            customerId: customerId,
+            isSuccess: isSuccess);
 
   factory LoginResponseDto.fromJson(Map<String, dynamic> json) {
     return LoginResponseDto(
@@ -19,3 +25,16 @@ class LoginResponseDto extends LoginResponse {
         isSuccess: json['isSuccess']);
   }
 }
+// extension ToLoginResponse on LoginResponseDto{
+//
+//   LoginResponse? toLoginResponse(){
+//     return LoginResponse(
+//       name: name,
+//       middleName: middleName,
+//       surname: surname,
+//       customerId: customerId,
+//       isSuccess: isSuccess
+//     );
+//   }
+//
+// }

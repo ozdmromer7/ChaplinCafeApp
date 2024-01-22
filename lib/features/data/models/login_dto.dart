@@ -6,7 +6,13 @@ class LoginDto extends Login {
       String? mobileNumber,
       String? password,
       String? companyId,
-      String? branchId});
+      String? branchId})
+      : super(
+            mail: mail,
+            mobileNumber: mobileNumber,
+            password: password,
+            companyId: companyId,
+            branchId: branchId);
 
   LoginDto copyWith(
       {String? mail,

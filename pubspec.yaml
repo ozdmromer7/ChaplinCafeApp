@@ -14,9 +14,6 @@ dependencies:
 
   cupertino_icons: ^1.0.2
 
-
-  get_it: ^7.6.6
-
   #state management
   bloc: ^8.1.2
 
@@ -31,6 +28,12 @@ dependencies:
 
   #for api requests
   dio: ^5.4.0
+
+  #for dependency injection
+  get_it: ^7.6.7
+
+  #internet connection
+  internet_connection_checker: ^1.0.0+1
 
   #for localization process
   easy_localization: ^3.0.3

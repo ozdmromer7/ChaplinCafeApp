@@ -1,10 +1,11 @@
 import 'package:chaplin_cafe_app/core/constant/constant.dart';
+import 'package:chaplin_cafe_app/features/di/injection.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-
 import 'core/localization/application_init.dart';
 
 Future<void> main() async {
+  await initializeDependencies();
   await ApplicationInit.init();
   runApp(ApplicationInit.easyLocalization);
 }

@@ -4,5 +4,5 @@ import '../../../../core/resources/resources.dart';
 
 abstract class CafeApiService {
 
-  Future<Resource<LoginResponseDto>> getLogin();
+  Future<Resource<LoginResponseDto>?> fetchLogin();
 }
