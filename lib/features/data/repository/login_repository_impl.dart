@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:chaplin_cafe_app/core/enum/UriEndPoints.dart';
+import 'package:chaplin_cafe_app/core/enum/uri_end_points.dart';
 import 'package:chaplin_cafe_app/features/domain/entities/login.dart';
 import 'package:chaplin_cafe_app/features/domain/repository/login_repository.dart';
 import 'package:dio/dio.dart';
