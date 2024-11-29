@@ -1,7 +1,7 @@
 import 'package:chaplin_cafe_app/config/routes/navigator_manager.dart';
 import 'package:chaplin_cafe_app/config/theme/theme_notifier.dart';
 import 'package:chaplin_cafe_app/core/constant/constant.dart';
-import 'package:chaplin_cafe_app/features/di/injection.dart';
+import 'package:chaplin_cafe_app/features/presentation/auth/login/login.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -10,7 +10,6 @@ import 'config/routes/routers.dart';
 import 'core/localization/application_init.dart';
 
 Future<void> main() async {
-  await initializeDependencies();
   await ApplicationInit.init();
   runApp(MultiProvider(
       providers: [
@@ -30,14 +29,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'AppName'.tr().toString(),
-      theme: context.watch<ThemeNotifier>().currentTheme,
+      theme: context.theme,
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: supportedLocales,
       locale: context.locale,
       initialRoute: RouteName.init,
       onGenerateRoute: Routers.generateRoute,
       navigatorKey: NavigatorManager.instance.navigatorGlobalKey,
-      home: const Scaffold(),
+      home: LoginPage(),
     );
   }
 }

@@ -18,4 +18,14 @@ class Login extends Equatable {
   List<Object?> get props {
     return [mail, mobileNumber, password, companyId, branchId];
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'mail': mail,
+      'mobileNumber': mobileNumber,
+      'password': password,
+      'companyId': companyId,
+      'branchId': branchId,
+    };
+  }
 }

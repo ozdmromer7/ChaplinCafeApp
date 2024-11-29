@@ -8,14 +8,14 @@ class ApplicationInit {
   const ApplicationInit._();
 
   static EasyLocalization easyLocalization({required MyApp child}) {
-
     return EasyLocalization(
-      supportedLocales:supportedLocales,
-      path:lang_path,
-      fallbackLocale:TR_LOCALE,
+      supportedLocales: supportedLocales,
+      path: lang_path,
+      fallbackLocale: TR_LOCALE,
       child: child,
     );
-}
+  }
+
   static Future<void> init() async {
     WidgetsFlutterBinding.ensureInitialized();
     await EasyLocalization.ensureInitialized();

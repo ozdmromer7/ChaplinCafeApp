@@ -1,13 +1,11 @@
-import 'dart:ffi';
-
 import 'package:equatable/equatable.dart';
 
 class LoginResponse extends Equatable {
   final String? name;
   final String? middleName;
   final String? surname;
-  final Int? customerId;
-  final Bool? isSuccess;
+  final int? customerId;
+  final bool? isSuccess;
 
   const LoginResponse(
       {this.name,
